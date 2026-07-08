@@ -1,0 +1,6 @@
+[user]
+	name = voidcode
+	email = 45525110+hotrooibos@users.noreply.github.com
+	signingkey = 829E817567B6F7E4
+[commit]
+	gpgsign = true
