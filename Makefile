@@ -1,11 +1,13 @@
+.PHONY: install restow delete check
+
 install:
 	./install.sh
 
 restow:
-	stow -R */
+	stow -R -t ~ */
 
 delete:
-	stow -D */
+	stow -D -t ~ */
 
 check:
 	git status

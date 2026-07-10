@@ -79,7 +79,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
 
-source $ZSH/oh-my-zsh.sh
+source "$ZSH/oh-my-zsh.sh"
 
 # User configuration
 
@@ -111,26 +111,29 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias ll="ls -ahl"
 
-# Created by `pipx` on 2026-03-30 00:18:01
-export PATH="$PATH:/home/tda/.local/bin"
-
-# opencode
-export OPENCODE_EXPERIMENTAL_BACKGROUND_SUBAGENTS=1 # OMO-Slim
-
-export PATH=/home/tda/.opencode/bin:$PATH
-opencode() {
-  command opencode upgrade
-  command opencode models --refresh >/dev/null 2>&1
-  bunx oh-my-opencode-slim@latest install
-  command opencode "$@"
-}
-
-# bun completions
-[ -s "/home/tda/.bun/_bun" ] && source "/home/tda/.bun/_bun"
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Containers toolbox like
+# Example: tb myProject
+tb() {
+  (( $# == 1 )) || {
+    echo "Usage: tb <container>"
+    return 1
+  }
+
+  container start "$1" >/dev/null 2>&1
+  container exec -it "$1" zsh
+}
+
+# Opencode
+export OPENCODE_EXPERIMENTAL_BACKGROUND_SUBAGENTS=true
+
+opencode() {
+  if [[ $# -eq 0 || "$1" == -* ]]; then
+    command opencode upgrade 2>/dev/null || true
+    command opencode models --refresh 2>/dev/null || true
+    bunx oh-my-opencode-slim@latest install --no-tui --tmux=no --skills=yes 2>/dev/null || true
+  fi
+  command opencode "$@"
+}

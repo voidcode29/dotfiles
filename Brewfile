@@ -12,9 +12,6 @@ tap "slp/krun", "https://github.com/libkrun/homebrew-krun.git"
 # CLI Tools
 ###############################################################################
 
-# Incredibly fast JavaScript runtime, bundler, test runner, and package manager
-brew "bun"
-
 # Create and run Linux containers using lightweight virtual machines
 brew "container"
 
@@ -26,9 +23,6 @@ brew "libpq"
 
 # AI coding agent for the terminal
 brew "anomalyco/tap/opencode", trusted: true
-
-# Theme for zsh
-brew "powerlevel10k"
 
 # Dotfile manager
 brew "stow"
