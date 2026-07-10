@@ -6,7 +6,6 @@
 ###############################################################################
 
 tap "anomalyco/tap"
-tap "homebrew/cask-fonts"
 tap "slp/krun", "https://github.com/libkrun/homebrew-krun.git"
 
 ###############################################################################
@@ -25,51 +24,66 @@ brew "git"
 # Postgres C API library
 brew "libpq"
 
+# AI coding agent for the terminal
+brew "anomalyco/tap/opencode", trusted: true
+
 # Theme for zsh
 brew "powerlevel10k"
 
 # Dotfile manager
 brew "stow"
 
-# The AI coding agent built for the terminal
-brew "anomalyco/tap/opencode", trusted: true
-
 ###############################################################################
-# GUI Applications
+# Development
 ###############################################################################
 
-# Free and open-source web browser
-cask "chromium"
-
-# Terminal emulator
-cask "iterm2"
-
-# Binary releases of VS Code without MS branding/telemetry/licensing
+# VS Code without Microsoft branding/telemetry
 cask "vscodium"
 
-# Web browser
+###############################################################################
+# Browsers
+###############################################################################
+
+cask "chromium"
 cask "librewolf"
 
-# Free and open-source media player
-cask "iina"
+###############################################################################
+# Terminal
+###############################################################################
 
-# Multimedia player
+cask "iterm2"
+
+###############################################################################
+# Media
+###############################################################################
+
+cask "iina"
 cask "vlc"
 
-# App to write, plan, collaborate, and get organised
+###############################################################################
+# Productivity
+###############################################################################
+
 cask "notion"
 
-# Instant messaging application focusing on security
-cask "signal"
+###############################################################################
+# Security & System
+###############################################################################
 
-# Disk encryption software based on TrueCrypt
-cask "veracrypt"
+# Open-source firewall
+cask "lulu"
 
 # File system integration
 cask "macfuse"
 
-# Prevent Apple Music/iTunes from launching automatically
+# Prevent Apple Music from launching automatically
 cask "notunes"
+
+# Secure messaging
+cask "signal"
+
+# Disk encryption
+cask "veracrypt"
 
 ###############################################################################
 # Fonts
