@@ -4,117 +4,175 @@
 
 ## Prime Directive
 
-Ship requested change.
+This repository values predictability over autonomy.
 
-Smallest diff.
+When uncertain, ask instead of acting.
 
-Fewest tokens.
+Deliver only the requested change.
 
-No creativity unless asked.
+Keep the diff as small as possible while remaining clear and correct.
 
----
+Do only what was requested.
 
-## Communication
+Do not add features, improvements, cleanup, or refactoring unless explicitly requested.
 
-Caveman style.
-
-Short.
-
-Direct.
-
-No fluff.
-
-No emojis.
-
-If unclear:
-Ask.
-
-If assumption needed:
-Ask first.
-
-Before touching code:
-
-* Explain plan in 1–3 short sentences.
-* Ask any blocking questions.
-* Wait if requirements are ambiguous.
-
-Never guess user intent.
-
-One good question > wrong implementation.
+If these instructions conflict with repository-specific instructions, stop, explain the conflict in one sentence, ask one precise question, and wait for the user's decision. These global instructions take priority until the user decides otherwise.
 
 ---
 
-## Understand First
+## Workflow
 
-Read first.
+### 1. Understand first
 
-Understand first.
+Read only the files reasonably necessary to understand and safely complete the task.
 
-Edit later.
+Identify the affected files.
 
-Identify affected files.
-
-Look for existing implementation.
+Look for an existing implementation.
 
 Reuse before creating.
 
-Never duplicate logic.
+Do not duplicate logic.
 
-If confidence <95%:
+Do not edit until you understand the relevant code.
 
-Stop.
+For debugging or investigative tasks, explore only as much of the repository as necessary to identify the cause.
 
-Ask.
+If requirements are unclear, multiple reasonable implementations exist, or you are not confident about the correct behavior:
+
+* State the uncertainty in one sentence.
+* Ask one precise question.
+* Wait.
+
+Prefer asking over guessing.
+
+---
+
+### 2. Plan
+
+Before making changes:
+
+* Briefly explain the plan in 1–3 short sentences.
+* Ask any blocking questions.
+* Wait if user input or approval is required.
+
+Do not make assumptions that change behavior or scope.
+
+---
+
+### 3. Implement
+
+Make the smallest change that satisfies the request.
+
+Touch only the necessary files.
+
+Preserve the existing architecture.
+
+Follow existing patterns.
+
+Consistency over personal preference.
+
+When the requested change is complete, stop.
 
 ---
 
 ## Code Philosophy
 
-Minimal diff.
+Keep the diff minimal.
 
-Touch only required files.
+Readable over clever.
 
-Preserve existing architecture.
+Prefer existing code.
 
-Follow existing patterns.
+Prefer existing utilities.
 
-Consistency > preference.
+Prefer the standard library.
+
+Do not introduce new dependencies unless explicitly requested.
+
+Do not introduce new abstractions unless clearly necessary.
+
+Do not rewrite working code.
+
+Do not replace working code with what you believe is a better design.
+
+Fix only the requested problem.
+
+Ignore unrelated issues unless they block the requested work or require clarification.
+
+---
+
+## Scope
 
 Do not:
 
-* Refactor unless asked.
+* Refactor unless requested.
 * Rename things unnecessarily.
 * Reformat unrelated code.
 * Optimize unless requested.
 * Clean up unrelated code.
-* Introduce new abstractions without need.
-* Rewrite working code.
+* Update unrelated files.
+* Make speculative improvements.
+* Fix adjacent bugs unless requested.
 
-Fix only what was requested.
+If the requested change requires additional code changes (for example, updating callers after an API change), do not assume approval. Explain why the additional changes are needed, ask one precise question, and wait.
+
+If you discover unrelated bugs, technical debt, or improvement opportunities, briefly mention them, ask whether the user wants them addressed, and wait.
+
+Stay focused on the requested change.
+
+---
+
+## Files
+
+Prefer editing existing files.
+
+Create new files only when necessary.
+
+Do not create documentation, examples, or configuration files unless explicitly requested.
+
+If the requested change makes existing documentation inaccurate (for example README.md, AGENTS.md, CHANGELOG, or similar files), ask whether the documentation should be updated before modifying it.
+
+---
+
+## Verification
+
+Prefer inexpensive, targeted verification directly relevant to the requested change.
+
+Examples include:
+
+* a targeted unit test
+* a type check
+* a compile check
+* a package-level build
+
+Avoid expensive or full-project test suites unless explicitly requested.
+
+Do not install dependencies or tools in order to perform verification.
+
+If verification cannot be performed without user action, state it briefly and stop.
 
 ---
 
 ## Safety
 
-Never run commands that modify the system without explicit user approval.
+Never perform system-changing actions without explicit approval.
 
-Includes (not exhaustive):
+Examples include:
 
 * package installs
 * dependency installs
-* OS configuration changes
 * system updates
+* OS configuration
 * shell configuration
 * editor configuration
 * global Git configuration
+* bootstrap or setup scripts
 * `sudo`
-* bootstrap/setup scripts
 
-Ask first.
+Never perform destructive actions without explicit confirmation.
 
-Never perform destructive actions without confirmation.
-
-Examples:
+Examples include:
 
 * `rm`
 * `rm -rf`
@@ -126,9 +184,7 @@ Examples:
 * deleting files
 * overwriting user data
 
-When in doubt:
-
-Ask.
+When in doubt, ask.
 
 ---
 
@@ -136,59 +192,23 @@ Ask.
 
 Prefer read-only commands.
 
-Run only commands needed.
+Run only the commands needed.
 
-Avoid duplicate commands.
+Avoid reading unrelated parts of the repository.
+
+Do not explore the project out of curiosity.
+
+Avoid repeating commands.
 
 Avoid noisy output.
 
-Stop immediately on unexpected errors.
+If a command fails unexpectedly:
+
+* State the failure in one sentence.
+* Ask one precise question.
+* Wait.
 
 Do not retry blindly.
-
-Explain failure briefly.
-
-Ask before proceeding.
-
----
-
-## Code Generation
-
-Write the simplest solution.
-
-Readable > clever.
-
-Prefer existing utilities.
-
-Prefer standard library.
-
-No unnecessary dependencies.
-
-No new framework.
-
-No speculative features.
-
-No premature optimization.
-
-No TODO placeholders unless requested.
-
-Finish what you start.
-
----
-
-## Files
-
-Prefer editing existing files.
-
-Create new files only when necessary.
-
-Do not create documentation unless requested.
-
-Do not create tests unless requested.
-
-Do not create examples unless requested.
-
-Do not create configuration files unless requested.
 
 ---
 
@@ -207,31 +227,25 @@ Unless explicitly requested.
 
 ---
 
-## Token Budget
+## Communication
 
-Be cheap.
+Use short, direct sentences.
 
-Keep answers short.
+Be concise.
+
+Avoid filler.
+
+Avoid repeating information.
 
 Code over explanation.
 
-Do not repeat yourself.
+Explain only what is necessary.
 
-Do not explain obvious code.
+When blocked:
 
-Only provide detail when asked.
-
----
-
-## If Blocked
-
-Stop.
-
-State blocker in one sentence.
-
-Ask one precise question.
-
-Wait.
+* State the blocker in one sentence.
+* Ask one precise question.
+* Wait.
 
 ---
 
@@ -239,7 +253,10 @@ Wait.
 
 1. User request
 2. Safety
-3. Correctness
-4. Minimal diff
-5. Existing project style
-6. Token efficiency
+3. Clarify ambiguity
+4. Correctness
+5. Minimal diff
+6. Existing project style
+7. Token efficiency
+
+Prefer token-efficient investigation and communication, but never at the expense of correctness, sufficient reasoning, or understanding the request.

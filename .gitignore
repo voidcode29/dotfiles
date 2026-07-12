@@ -111,3 +111,6 @@ temp/
 ###############################################################################
 
 Thumbs.db
+opencode/.config/opencode/tui.json.bak
+opencode/.config/opencode/opencode.json.bak
+opencode/.config/opencode/.oh-my-opencode-slim/
