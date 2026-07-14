@@ -33,16 +33,16 @@
   },
   "agent": {
     "explore": {
-      "disable": true
+      "disable": false
     },
     "general": {
-      "disable": true
+      "disable": false
     },
     "build": {
-      "disable": true
+      "disable": false
     },
     "plan": {
-      "disable": true
+      "disable": false
     }
   },
   "provider": {
@@ -60,25 +60,18 @@
       }
     },
     "ollama": {
-      "id": "ollama",
-      "api": "openai",
+      "npm": "@ai-sdk/openai-compatible",
       "options": {
-        "baseURL": "http://localhost:11434/v1",
-        "apiKey": "ollama"
+        "baseURL": "http://localhost:11434/v1"
       },
       "models": {
         "qwen3.5:9b": {
-          "id": "qwen3.5:9b",
-          "name": "Qwen 3.5 9B",
-          "tool_call": false,
-          "limit": {
-            "context": 32768,
-            "output": 8192
-          }
+          "name": "Qwen 3.5 9B"
         }
       }
     }
   },
+  "model": "ollama/qwen3.5:9b",
   "lsp": true,
   "plugin": [
     "oh-my-opencode-slim"
