@@ -127,8 +127,6 @@ tb() {
 }
 
 # Opencode
-export OPENCODE_EXPERIMENTAL_BACKGROUND_SUBAGENTS=true
-
 opencode() {
   if [[ $# -eq 0 || "$1" == -* ]]; then
     command opencode upgrade 2>/dev/null || true
@@ -137,8 +135,3 @@ opencode() {
   fi
   command opencode "$@"
 }
-
-# Homebrew
-if command -v brew >/dev/null 2>&1; then
-  eval "$(brew shellenv zsh)"
-fi
