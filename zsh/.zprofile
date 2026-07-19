@@ -12,3 +12,6 @@ done
 
 # Opencode
 export OPENCODE_EXPERIMENTAL_BACKGROUND_SUBAGENTS=true
+
+# Mise
+eval "$(mise activate zsh)"
