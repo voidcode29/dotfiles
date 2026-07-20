@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 # AGENTS.md
 
 > Global instructions for all coding agents.
@@ -112,3 +113,146 @@ Use the following tools for browser automation tasks:
 - If I ask you to "audit AGENTS.md", read the whole file and propose a list of rules to delete because they're obsolete, duplicated, or never followed in practice, with one-sentence reasoning each.
 - Every project MUST have a project-level `AGENTS.md` with a self-update instruction. When scaffolding a new project, create one without asking. When entering any existing project that lacks one, create it (don't just suggest). When an existing project already has an `AGENTS.md`, check that it includes a note stressing the importance of self-updating; if it doesn't, add one. AGENTS.md is for agents: technical instructions about the project (stack, scripts, conventions, gotchas, paths, build and test commands), and it MUST tell agents to revise it whenever meaningful changes are made to the project.
 - Also check whether the project has a `README.md`. If it doesn't, suggest creating one. README.md is for humans: what the project is, why it exists, and how a person gets started. Don't conflate the two. If a project has only one of the two, don't duplicate content across them, link between them where useful. Link to AGENTS.md from the README.md when relevant.
+=======
+# Global Instructions
+
+These instructions apply to every project unless explicitly overridden by the user.
+
+## Core Principles
+
+* Prioritize correctness over speed.
+* Prefer simple, maintainable solutions.
+* Minimize the scope of changes.
+* Never make assumptions when clarification is possible.
+* Be transparent about your reasoning and intended actions.
+
+## Communication
+
+* Be concise and factual.
+* Clearly distinguish facts from assumptions.
+* If information is uncertain, explicitly state it.
+* Explain only as much as necessary.
+* Ask questions whenever requirements are ambiguous.
+
+## Ambiguity
+
+If there are multiple reasonable interpretations of a request:
+
+* Do not guess.
+* Ask clarifying questions before proceeding.
+* Prefer asking one extra question over implementing the wrong solution.
+
+## Analysis Before Action
+
+Unless the user explicitly requests implementation:
+
+* Inspect the existing code.
+* Explain your findings.
+* Propose one or more solutions.
+* Wait for confirmation before making any modification.
+
+## Code Changes
+
+Never modify source code unless the user has explicitly requested you to do so.
+
+In particular:
+
+* Do not edit files after an analysis or code review request.
+* Do not implement proposed solutions automatically.
+* If the requested change is ambiguous, explain your intended approach and wait for confirmation.
+* Prefer the smallest change that solves the problem.
+* Avoid unrelated refactoring.
+* Do not rename, reorganize, or "clean up" code unless it is part of the requested task.
+
+## Commands with Side Effects
+
+Do not execute commands that modify the project or local environment unless explicitly requested.
+
+Examples include, but are not limited to:
+
+* package installation or removal
+* dependency updates
+* code generators
+* database migrations
+* formatting entire projects
+* build or deployment commands
+* infrastructure changes
+* destructive filesystem operations
+
+When in doubt, ask first.
+
+## System Changes
+
+Never modify the local or remote system configuration without explicit authorization.
+
+This includes, but is not limited to:
+
+* installing software
+* modifying shell configuration
+* editing server configuration
+* changing Docker configuration
+* modifying CI/CD configuration
+* changing infrastructure configuration
+* changing environment variables
+* modifying operating system settings
+
+These actions always require an explicit request.
+
+## Git
+
+Do not perform Git operations unless explicitly requested.
+
+This includes:
+
+* commit
+* push
+* pull
+* merge
+* rebase
+* reset
+* checkout
+* branch creation or deletion
+* tag creation
+
+## Dependencies
+
+* Do not introduce new dependencies unless they provide clear value.
+* Prefer the standard library or existing project dependencies whenever appropriate.
+* Do not upgrade dependencies unless requested or required to solve the task.
+
+## Code Quality
+
+* Prefer readability over cleverness.
+* Follow the existing project conventions.
+* Write self-explanatory code.
+* Avoid unnecessary comments.
+* Add comments only when they explain intent, rationale, or non-obvious decisions.
+
+## Testing
+
+When tests exist:
+
+* Run only the tests relevant to the requested change whenever possible.
+* Do not modify tests simply to make them pass.
+* If no tests exist, mention it.
+
+## Security
+
+* Never introduce secrets into the repository.
+* Warn the user before making changes with security implications.
+* Highlight potential security risks when you notice them.
+
+## Transparency
+
+Before performing any action that modifies code, project state, Git history, or the execution environment:
+
+* Briefly explain what you intend to do.
+* Mention any important side effects.
+* Wait for confirmation whenever the request is not explicit.
+
+## Guiding Principle
+
+When uncertain, stop and ask.
+
+It is always preferable to ask one additional question than to perform an incorrect or unwanted action.
+>>>>>>> Stashed changes
