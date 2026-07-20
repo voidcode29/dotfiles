@@ -135,3 +135,6 @@ opencode() {
   fi
   command opencode "$@"
 }
+
+# Mise
+eval "$(mise activate zsh)"
